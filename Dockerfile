@@ -17,7 +17,7 @@ COPY requirements.txt /app/requirements.txt
 WORKDIR /app
 
 # 安装Python依赖
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # 暴露端口
 EXPOSE 443
