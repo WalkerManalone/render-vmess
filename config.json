@@ -1,12 +1,18 @@
 {
   "inbounds": [{
-    "port": 10086,
+    "port": 443,
     "protocol": "vmess",
     "settings": {
       "clients": [{
         "id": "ce664e7d-2e1b-4008-9fbd-8af7c71245cd",
         "alterId": 64
       }]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/vmess"
+      }
     }
   }],
   "outbounds": [{
