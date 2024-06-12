@@ -1,12 +1,14 @@
-FROM python:3.9-slim
+FROM v2fly/v2fly-core
+
+COPY config.json /etc/v2ray/config.json
+COPY main.py /app/main.py
+COPY requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-COPY . .
+RUN apk add --no-cache python3 py3-pip && \
+    pip3 install -r requirements.txt
 
-RUN pip install -r requirements.txt
+EXPOSE 443
 
-EXPOSE 10086
-EXPOSE 8000
-
-CMD ["python", "main.py"]
+CMD ["sh", "-c", "v2ray -config /etc/v2ray/config.json & python3 /app/main.py"]
